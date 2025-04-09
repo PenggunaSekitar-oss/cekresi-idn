@@ -1,0 +1,92 @@
+Gateaway di Pulau Jawa :
+
+BDG: Bandung
+BTO: Tangerang
+BWX: Banyuwangi
+BXW: Bawean
+CBN: Cirebon
+CGK: Jakarta, Tangerang
+CKP: Cikampek
+CXP: Cilacap
+DPK: Depok
+JBB: Jember
+JKS: Jakarta Selatan
+JKT: Jakarta
+JOG: Yogyakarta
+KJT: Majalengka
+MLG: Malang
+PCB: Tangerang Selatan
+PPJ: Kepulauan Seribu
+SOC: Surakarta
+SRG: Semarang
+SUB: Surabaya
+TSY: Tasikmalaya
+
+Gateaway di Pulau Sumatra :
+
+AEG: Padang Sidempuan
+BKS: Bengkulu
+BTH: Batam
+BTJ: Banda Aceh
+DJB: Jambi
+DTB: Siborong-Borong
+DUM: Dumai
+FLZ: Sibolga
+GNS: Gunung Sitoli
+KNO: Medan, Deli Serdang
+LLG: Lubuklinggau
+LSE: Kepulauan Batu
+MEQ: Suka Makmue
+MES: Medan
+NTX: Ranai
+PDG: Padang
+PGK: Pangkal Pinang
+PKU: Pekanbaru
+PLM: Palembang
+RKI: Sipora
+SIW: Simalungun, Toba Samosir
+SNX: Sinabang
+TJQ: Tanjung Pandan
+TKG: Bandar Lampung
+TNJ: Tanjung Pinang
+TXE: Takengon
+
+Gateaway di Pulau Sulawesi :
+
+AMP: Tojo Una-Una
+BUW: Bau-Bau
+GTO: Gorontalo
+KDI: Kendari
+KSR: Selayar
+LLO: Luwu
+MDC: Manado
+MJU: Mamuju
+MNA: Melonguane
+MOH: Morowali
+MXB: Masamba
+NAH: Sangihe
+PLW: Palu
+PSJ : Poso
+PUM: Kolaka
+UPG: Makassar
+
+Gateaway di Pulau Kalimantan :
+
+BDJ: Banjarmasin
+BEJ: Tanjung Redep, Berau
+BPN: Balikpapan
+BXT: Bontang
+DTD: Mahakam Ulu
+KTG: Ketapang
+LBW: Long Bawan
+LPU: Long Apung
+NNX: Nunukan
+PKN: Pangkalanbun
+PKY: Palangkaraya
+PNK: Pontianak
+PSU: Putussibau
+SMQ: Sampit
+SQG: Sintang
+SRI: Samarinda
+TJS: Tanjung Selor
+TRK: Tarakan
