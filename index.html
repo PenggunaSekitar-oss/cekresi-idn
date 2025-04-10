@@ -19,9 +19,6 @@
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -29,9 +26,25 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1877F2',
-                        secondary: '#8A2BE2',
-                        accent: '#DDA0DD',
+                        primary: '#4F46E5',
+                        secondary: '#7C3AED',
+                        accent: '#F472B6',
+                        success: '#10B981',
+                        warning: '#F59E0B',
+                        danger: '#EF4444',
+                        dark: '#1F2937',
+                        light: '#F9FAFB'
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
                     }
                 }
             }
@@ -39,212 +52,376 @@
     </script>
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gradient-to-b from-white to-blue-50">
+<body class="bg-gradient-to-b from-indigo-50 to-white">
   
     <!-- Preloader -->
-  <div id="preloader" class="fixed inset-0 bg-gradient-to-br from blue-500 to-white flex flex-col items-center justify-center z-50 transition-opacity duration-500 ease-out">
-  <div class="relative flex items-center justify-center mb-4">
-    <svg class="w-20 h-20 animate-spin-slow" viewBox="0 0 100 100">
-      <circle class="text-gray-200/80" stroke-width="6" stroke="currentColor" fill="transparent" r="44" cx="50" cy="50"></circle>
-      <circle class="text-blue-600" stroke-width="6" stroke="currentColor" stroke-linecap="round" fill="transparent" r="44" cx="50" cy="50" stroke-dasharray="276" stroke-dashoffset="110"></circle>
-    </svg>
-    <div class="absolute inset-0 flex items-center justify-center animate-pulse">
-      <!-- Ikon truk -->
-      <svg class="w-10 h-10 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M3 3a1 1 0 00-1 1v9a1 1 0 001 1h1a3 3 0 106 0h4a3 3 0 106 0h1a1 1 0 001-1v-3.586a1 1 0 00-.293-.707l-3.414-3.414A1 1 0 0016.586 6H13V4a1 1 0 00-1-1H3zm10 4h3.586L18 9.414V12h-1a3 3 0 00-6 0H9a3 3 0 00-6 0H4V4h9v3z" />
-      </svg>
+    <div id="preloader" class="fixed inset-0 bg-gradient-to-br from-indigo-600 to-purple-700 flex flex-col items-center justify-center z-50 transition-opacity duration-500 ease-out">
+        <div class="relative flex items-center justify-center mb-4">
+            <svg class="w-20 h-20 animate-spin-slow" viewBox="0 0 100 100">
+                <circle class="text-indigo-200/80" stroke-width="6" stroke="currentColor" fill="transparent" r="44" cx="50" cy="50"></circle>
+                <circle class="text-white" stroke-width="6" stroke="currentColor" stroke-linecap="round" fill="transparent" r="44" cx="50" cy="50" stroke-dasharray="276" stroke-dashoffset="110"></circle>
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center animate-pulse">
+                <svg class="w-10 h-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+        </div>
+        <p class="text-white text-lg font-semibold tracking-wide">CekResi<span class="text-pink-400">.idn</span></p>
+        <p class="text-indigo-200 mt-2 text-sm">Membuka.. Portal Waktu</p>
     </div>
-  </div>
-  <p class="text-blue-600 text-lg font-semibold tracking-wide">CekResi.idn</p>
-</div>
-
 
     <!-- Header -->
-<header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-4 px-6 shadow-lg sticky top-0 z-10">
-    <div class="container mx-auto flex justify-between items-center">
-        <a href="#" class="flex items-center space-x-2 no-underline -ml-2">
-            <div class="relative">
-                <i class="fas fa-truck text-2xl text-white"></i>
-                <div class="absolute -top-1 -right-1 h-3 w-3 bg-pink-500 rounded-full animate-pulse"></div>
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 px-4 md:px-6 shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2 no-underline -ml-2 group">
+                <div class="relative transition-transform duration-300 group-hover:scale-110">
+                    <i class="fas fa-truck text-2xl text-white"></i>
+                    <div class="absolute -top-1 -right-1 h-3 w-3 bg-pink-500 rounded-full animate-pulse"></div>
+                </div>
+                <h1 class="text-xl md:text-2xl font-bold text-white font-poppins">
+                    CekResi<span class="text-pink-400">.idn</span>
+                </h1>
+            </a>
+            
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="text-white hover:text-pink-300 transition-colors duration-300 font-medium font-poppins relative group">
+                    Beranda
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#tracking" class="text-white hover:text-pink-300 transition-colors duration-300 font-medium font-poppins relative group">
+                    Cek Resi
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#ekspedisi" class="text-white hover:text-pink-300 transition-colors duration-300 font-medium font-poppins relative group">
+                    Ekspedisi
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#faq" class="text-white hover:text-pink-300 transition-colors duration-300 font-medium font-poppins relative group">
+                    FAQ
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="text-white hover:text-pink-300 transition-colors duration-300 font-medium font-poppins relative group">
+                    Kontak
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="text-white hover:text-pink-300 transition-colors duration-300" aria-label="Ubah tema">
+                    <i class="fas fa-sun text-xl"></i>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-label="Menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
-            <h1 class="text-xl md:text-2xl font-bold text-white font-poppins">
-                CekResi<span class="text-pink-500">.idn</span>
-            </h1>
-        </a>
+        </div>
         
-        <nav class="hidden md:flex space-x-6">
-            <a href="#" class="text-white hover:text-pink-300 transition-colors duration-300 font-medium font-poppins">Beranda</a>
-            <a href="#tracking" class="text-white hover:text-pink-300 transition-colors duration-300 font-medium font-poppins">Cek Resi</a>
-            <a href="#faq" class="text-white hover:text-pink-300 transition-colors duration-300 font-medium font-poppins">FAQ</a>
-            <a href="#contact" class="text-white hover:text-pink-300 transition-colors duration-300 font-medium font-poppins">Kontak</a>
-        </nav>
-        
-        <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
-            <i class="fas fa-bars text-xl"></i>
-        </button>
-    </div>
-    
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden bg-white text-gray-800 absolute left-0 right-0 mt-4 py-2 px-4 shadow-lg rounded-b-lg hidden z-20">
-        <a href="#" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-colors duration-300 font-poppins">Beranda</a>
-        <a href="#tracking" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-colors duration-300 font-poppins">Cek Resi</a>
-        <a href="#faq" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-colors duration-300 font-poppins">FAQ</a>
-        <a href="#contact" class="block py-2 px-4 hover:bg-gray-100 rounded-lg transition-colors duration-300 font-poppins">Kontak</a>
-    </div>
-</header>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white text-gray-800 absolute left-0 right-0 mt-4 py-2 px-4 shadow-lg rounded-b-lg hidden z-20">
+            <a href="#" class="block py-2 px-4 hover:bg-indigo-50 rounded-lg transition-colors duration-300 font-poppins">Beranda</a>
+            <a href="#tracking" class="block py-2 px-4 hover:bg-indigo-50 rounded-lg transition-colors duration-300 font-poppins">Cek Resi</a>
+            <a href="#ekspedisi" class="block py-2 px-4 hover:bg-indigo-50 rounded-lg transition-colors duration-300 font-poppins">Ekspedisi</a>
+            <a href="#faq" class="block py-2 px-4 hover:bg-indigo-50 rounded-lg transition-colors duration-300 font-poppins">FAQ</a>
+            <a href="#contact" class="block py-2 px-4 hover:bg-indigo-50 rounded-lg transition-colors duration-300 font-poppins">Kontak</a>
+        </div>
+    </header>
 
     <main>
         <!-- Hero Section -->
-       <section class="relative overflow-hidden bg-gradient-to-b from-[#1877F2]/10 to-white py-12 md:py-20 mb-8">
-  <div class="container mx-auto px-4">
-    <div class="flex flex-col md:flex-row items-center">
-      <div class="md:w-1/2 mb-8 md:mb-0 animate__animated animate__fadeInLeft">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-gray-800 leading-none">
-          Lacak Paket Anda <span class="text-[#1877F2]">dengan Mudah</span>
-        </h2>
-        
-        <p class="text-gray-600 mb-6 text-lg">
-          Pantau pengiriman dari berbagai ekspedisi dalam satu platform. Dapatkan informasi real-time tentang status pengiriman Anda.
-        </p>
-        <a href="#tracking" class="inline-flex items-center group bg-[#1877F2] text-white px-6 py-3 rounded-lg hover:bg-[#1566D8] transition-colors">
-          <span>Lacak Sekarang</span>
-          <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-        </a>
-      </div>
-      
-      <div class="md:w-1/2 relative animate__animated animate__fadeInRight">
-        <div class="delivery-animation">
-          <!-- Road -->
-          <div class="absolute bottom-1/4 left-0 right-0 h-2 bg-[#1877F2]/30 rounded-full"></div>
-          
-          <!-- Buildings -->
-          <!-- Gedung 1 (Kuning) -->
-<div class="absolute bottom-1/4 left-5 w-12 h-20 bg-yellow-300 rounded-t-lg shadow-lg">
-            <div class="absolute w-3 h-3 bg-gray-600 top-2 left-2"></div>
-            <div class="absolute w-3 h-3 bg-gray-600 top-2 right-2"></div>
-            <div class="absolute w-3 h-3 bg-gray-600 top-8 left-2"></div>
-            <div class="absolute w-4 h-6 bg-brown-600 bottom-0 left-4"></div>
-          </div>
-          
-          <!-- Gedung 2 (Ungu) -->
-          <div class="absolute bottom-1/4 left-20 w-16 h-28 bg-purple-300 rounded-t-lg shadow-lg">
-            <div class="absolute w-4 h-4 bg-gray-600 top-2 left-2"></div>
-            <div class="absolute w-4 h-4 bg-gray-600 top-2 right-2"></div>
-            <div class="absolute w-4 h-4 bg-gray-600 top-10 left-2"></div>
-            <div class="absolute w-4 h-4 bg-gray-600 top-10 right-2"></div>
-            <div class="absolute w-6 h-8 bg-brown-600 bottom-0 left-5"></div>
-          </div>
+        <section class="relative overflow-hidden bg-gradient-to-b from-indigo-100 to-white py-12 md:py-16 lg:py-24 mb-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0 animate__animated animate__fadeInLeft">
+                        <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm font-medium mb-4">
+                            #1 Platform Pelacakan Paket
+                        </span>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-800 leading-tight">
+                            Lacak Paket Anda <span class="text-indigo-600 relative">
+                                dengan Mudah
+                                <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 138 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 5.26391C30.3925 2.33487 65.0571 1.79485 137 5.26391" stroke="#F472B6" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </h2>
+                        
+                        <p class="text-gray-600 mb-6 text-lg">
+                            Pantau pengiriman dari berbagai ekspedisi dalam satu platform. Dapatkan informasi real-time tentang status pengiriman Anda.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#tracking" class="inline-flex items-center group bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-lg hover:shadow-lg hover:shadow-indigo-200 transition-all duration-300">
+                                <span>Lacak Sekarang</span>
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <a href="#ekspedisi" class="inline-flex items-center group bg-white border border-indigo-200 text-indigo-600 px-6 py-3 rounded-lg hover:bg-indigo-50 transition-all duration-300">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                <span>Lihat Ekspedisi</span>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-8 flex items-center space-x-4">
+                            <div class="flex -space-x-2">
+                                <div class="w-8 h-8 rounded-full bg-indigo-200 flex items-center justify-center text-indigo-600 text-xs">JNE</div>
+                                <div class="w-8 h-8 rounded-full bg-pink-200 flex items-center justify-center text-pink-600 text-xs">J&T</div>
+                                <div class="w-8 h-8 rounded-full bg-orange-200 flex items-center justify-center text-orange-600 text-xs">SPX</div>
+                                <div class="w-8 h-8 rounded-full bg-red-200 flex items-center justify-center text-red-600 text-xs">SCP</div>
+                                <div class="w-8 h-8 rounded-full bg-blue-200 flex items-center justify-center text-blue-600 text-xs">+5</div>
+                            </div>
+                            <span class="text-sm text-gray-500">Didukung oleh 10+ ekspedisi</span>
+                        </div>
+                    </div>
+                    
+  <!-- animasi -->
+  
+  
+    <div class="md:w-1/2 relative animate__animated animate__fadeInRight">
+                        <div class="delivery-animation">
+                            <!-- Awan Dekoratif -->
+                            <div class="absolute top-5 left-10 w-16 h-8 bg-white rounded-full opacity-80 animate-float"></div>
+                            <div class="absolute top-10 right-20 w-20 h-10 bg-white rounded-full opacity-80 animate-float" style="animation-delay: 0.5s"></div>
+                            <div class="absolute bottom-20 right-10 w-12 h-6 bg-white rounded-full opacity-80 animate-float" style="animation-delay: 1s"></div>
+                            
+                            <!-- Road -->
+                            <div class="absolute bottom-1/4 left-0 right-0 h-2 bg-gray-300 rounded-full"></div>
+                            
+                            <!-- Lokasi seller (merah) -->
+                            <div class="absolute bottom-1/4 left-5 flex flex-col items-center">
+                                <span class="text-sm font-semibold text-gray-700 mb-1">Seller</span>
+                                <div class="seller-pin">
+                                    <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 0C9 0 0 9 0 20C0 31 20 60 20 60C20 60 40 31 40 20C40 9 31 0 20 0Z" fill="#EF4444"/>
+                                        <circle cx="20" cy="18" r="8" fill="white"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Gedung Pink -->
+                            <div class="absolute bottom-1/4 left-16 w-16 h-32 bg-pink-400 rounded-lg">
+                                <!-- Jendela -->
+                                <div class="absolute top-3 left-3 w-4 h-4 bg-gray-700"></div>
+                                <div class="absolute top-3 right-3 w-4 h-4 bg-gray-700"></div>
+                                <div class="absolute top-12 left-3 w-4 h-4 bg-gray-700"></div>
+                                <div class="absolute top-12 right-3 w-4 h-4 bg-gray-700"></div>
+                                <!-- Pintu -->
+                                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-10 bg-pink-800 rounded-t-lg"></div>
+                            </div>
+                            
+                            <!-- Gedung Kuning -->
+                            <div class="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 w-20 h-24 bg-yellow-300 rounded-lg">
+                                <!-- Jendela -->
+                                <div class="absolute top-3 left-3 w-4 h-4 bg-gray-700"></div>
+                                <div class="absolute top-3 right-3 w-4 h-4 bg-gray-700"></div>
+                                <div class="absolute top-12 left-3 w-4 h-4 bg-gray-700"></div>
+                                <div class="absolute top-12 right-3 w-4 h-4 bg-gray-700"></div>
+                                <!-- Pintu -->
+                                <div class="absolute bottom-0 right-3 w-6 h-8 bg-yellow-800 rounded-t-lg"></div>
+                                <!-- Dekorasi -->
+                                <div class="absolute top-3 right-3 w-6 h-6 bg-pink-500 rounded-full"></div>
+                            </div>
+                            
+                            <!-- Gedung Ungu -->
+                            <div class="absolute bottom-1/4 right-16 w-20 h-40 bg-purple-300 rounded-lg">
+                                <!-- Jendela -->
+                                <div class="absolute top-3 left-3 w-4 h-4 bg-gray-700"></div>
+                                <div class="absolute top-3 right-3 w-4 h-4 bg-gray-700"></div>
+                                <div class="absolute top-12 left-3 w-4 h-4 bg-gray-700"></div>
+                                <div class="absolute top-12 right-3 w-4 h-4 bg-gray-700"></div>
+                                <div class="absolute top-21 left-3 w-4 h-4 bg-gray-700"></div>
+                                <div class="absolute top-21 right-3 w-4 h-4 bg-gray-700"></div>
+                                <!-- Pintu -->
+                                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-12 bg-purple-800 rounded-t-lg"></div>
+                            </div>
+                            
+                            <!-- Lokasi buyer (biru) -->
+                            <div class="absolute bottom-1/4 right-5 flex flex-col items-center">
+                                <span class="text-sm font-semibold text-gray-700 mb-1">Buyer</span>
+                                <div class="buyer-pin">
+                                    <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 0C9 0 0 9 0 20C0 31 20 60 20 60C20 60 40 31 40 20C40 9 31 0 20 0Z" fill="#3B82F6"/>
+                                        <circle cx="20" cy="18" r="8" fill="white"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+       <!-- Truck Animation -->
+     <div id="delivery-truck" class="absolute bottom-1/4 left-1/3 transform -translate-y-1/2">
+                                <svg width="30" height="40" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="5" width="30" height="20" rx="2" fill="#4338CA"/>
+                                    <rect x="0" y="15" width="20" height="15" rx="2" fill="#4338CA"/>
+                                    <circle cx="10" cy="30" r="5" fill="#3B82F6"/>
+                                    <circle cx="10" cy="30" r="2" fill="#1E3A8A"/>
+                                    <circle cx="35" cy="30" r="5" fill="#3B82F6"/>
+                                    <circle cx="35" cy="30" r="2" fill="#1E3A8A"/>
+                                    <rect x="5" y="10" width="10" height="5" rx="1" fill="#A5B4FC"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Decorative Elements -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-400 rounded-full filter blur-3xl opacity-20 -z-10"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-400 rounded-full filter blur-3xl opacity-20 -z-10"></div>
+        </section>
 
-          <!-- Gedung 3 (Pink) -->
-          <div class="absolute bottom-1/4 right-5 w-14 h-24 bg-pink-300 rounded-t-lg shadow-lg">
-            <div class="absolute w-3 h-3 bg-gray-400 top-2 left-2"></div>
-            <div class="absolute w-3 h-3 bg-gray-600 top-2 right-2"></div>
-            <div class="absolute w-3 h-3 bg-gray-200 top-8 left-2"></div>
-            <div class="absolute w-5 h-7 bg-brown-200 bottom-0 left-4"></div>
-          </div>
-          
-    <!-- lokasi seller (kuning) -->
-<div class="absolute bottom-1/4 right-24 flex flex-col items-center space-y-1">
-  <span class="text-sm font-semibold text-gray-700">seller</span>
-  <div class="w-10 h-16 flex items-center justify-center">
-    <div class="relative w-10 h-16">
-      <div class="absolute inset-0 bg-red-500 rounded-full shadow-lg"></div>
-      <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full shadow-md"></div>
-      <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 rotate-45 w-4 h-4 bg-red-500 rounded-bl-full"></div>
-    </div>
-  </div>
-</div>
-          
-          <!-- Truck Animation -->
-          <div class="truck-animation">
-            <i class="fas fa-truck text-5xl text-[#1877F2]"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <!-- Stats Section -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
+                    <div class="p-4 md:p-6 rounded-xl bg-gradient-to-br from-indigo-50 to-white shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="text-indigo-600 mb-2">
+                            <i class="fas fa-box-open text-2xl md:text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 counter" data-target="10000">0</h3>
+                        <p class="text-gray-500 text-sm md:text-base">Paket Dilacak Hari Ini</p>
+                    </div>
+                    
+                    <div class="p-4 md:p-6 rounded-xl bg-gradient-to-br from-pink-50 to-white shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="text-pink-500 mb-2">
+                            <i class="fas fa-truck-fast text-2xl md:text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 counter" data-target="10">0</h3>
+                        <p class="text-gray-500 text-sm md:text-base">Ekspedisi Didukung</p>
+                    </div>
+                    
+                    <div class="p-4 md:p-6 rounded-xl bg-gradient-to-br from-purple-50 to-white shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="text-purple-600 mb-2">
+                            <i class="fas fa-users text-2xl md:text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 counter" data-target="50000">0</h3>
+                        <p class="text-gray-500 text-sm md:text-base">Pengguna Aktif</p>
+                    </div>
+                    
+                    <div class="p-4 md:p-6 rounded-xl bg-gradient-to-br from-green-50 to-white shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="text-green-600 mb-2">
+                            <i class="fas fa-check-circle text-2xl md:text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 counter" data-target="99">0</h3>
+                        <p class="text-gray-500 text-sm md:text-base">% Akurasi Pelacakan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Tracking Section -->
-        <section id="tracking" class="py-12 md:py-16">
+        <section id="tracking" class="py-12 md:py-16 bg-gradient-to-b from-white to-indigo-50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-8 md:mb-12 animate__animated animate__fadeInUp">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4">Lacak Paket Anda</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">Masukkan nomor resi dari berbagai ekspedisi dan dapatkan informasi real-time tentang status pengiriman Anda.</p>
+                    <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm font-medium mb-4">
+                        Pelacakan Cepat
+                    </span>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-800">Lacak Paket Anda</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
+                        Masukkan nomor resi dari berbagai ekspedisi dan dapatkan informasi real-time tentang status pengiriman Anda.
+                    </p>
                 </div>
                 
                 <div class="max-w-4xl mx-auto">
                     <!-- Tracking Form -->
-                    <div class="bg-white rounded-xl shadow-lg p-4 md:p-6 lg:p-8 mb-8 md:mb-12 animate__animated animate__fadeInUp">
+                    <div class="bg-white rounded-xl shadow-lg p-4 md:p-6 lg:p-8 mb-8 md:mb-12 animate__animated animate__fadeInUp hover:shadow-xl transition-shadow duration-300">
                         <form id="tracking-form" class="space-y-4 md:space-y-6">
-                            <!-- Courier Selection -->
-                            <div class="courier-selector">
-                                <label class="block text-gray-700 mb-2 font-medium text-lg">Pilih Ekspedisi</label>
+                            
+                            
+      <!-- Courier Selection -->
+                           
+                           
+     <div class="courier-selector">
+    <label class="block text-gray-700 mb-2 font-medium text-lg">Pilih Ekspedisi</label>
                                 <div class="courier-logos grid grid-cols-3 sm:grid-cols-5 gap-3">
                                     <div class="courier-logo active" data-courier="jne" data-color="#D4232B">
-                                        <img src="assets/couriers/jne.jpg" alt="JNE" onerror="this.src='https://via.placeholder.com/40x40?text=JNE'">
+                                        <div class="w-12 h-12 mx-auto mb-2 bg-white-100 rounded-full flex items-center justify-center">
+                                            <img src="/images/jne-logo.png" alt="JNE" class="w-8 h-8 object-contain">
+                                        </div>
                                         <span>JNE</span>
                                     </div>
                                     <div class="courier-logo" data-courier="jnt" data-color="#D71149">
-                                        <img src="assets/couriers/jnt.jpg" alt="J&T" onerror="this.src='https://via.placeholder.com/40x40?text=J%26T'">
+                                        <div class="w-12 h-12 mx-auto mb-2 bg-white-100 rounded-full flex items-center justify-center">
+                                            <img src="/images/j&t-logo.png" alt="J&T" class="w-8 h-8 object-contain">
+                                        </div>
                                         <span>J&T</span>
                                     </div>
                                     <div class="courier-logo" data-courier="spx" data-color="#F25C05">
-                                        <img src="assets/couriers/shopee.jpg" alt="Shopee Express" onerror="this.src='https://via.placeholder.com/40x40?text=Shopee'">
+                                        <div class="w-12 h-12 mx-auto mb-2 bg-white-100 rounded-full flex items-center justify-center">
+                                            <img src="/images/spx-logo.png" alt="Shopee Express" class="w-8 h-8 object-contain">
+                                        </div>
                                         <span>Shopee</span>
                                     </div>
                                     <div class="courier-logo" data-courier="sicepat" data-color="#e60000">
-                                        <img src="assets/couriers/sicepat.jpg" alt="SiCepat" onerror="this.src='https://via.placeholder.com/40x40?text=SiCepat'">
+                                        <div class="w-12 h-12 mx-auto mb-2 bg-white-100 rounded-full flex items-center justify-center">
+                                            <img src="/images/sicepat-logo.png" alt="SiCepat" class="w-8 h-8 object-contain">
+                                        </div>
                                         <span>SiCepat</span>
                                     </div>
                                     <div class="courier-logo" data-courier="anteraja" data-color="#00AEEF">
-                                        <img src="assets/couriers/anteraja.jpg" alt="AnterAja" onerror="this.src='https://via.placeholder.com/40x40?text=AnterAja'">
+                                        <div class="w-12 h-12 mx-auto mb-2 bg-white-100 rounded-full flex items-center justify-center">
+                                            <img src="/images/anteraja-logo.png" alt="AnterAja" class="w-8 h-8 object-contain">
+                                        </div>
                                         <span>AnterAja</span>
                                     </div>
                                     <div class="courier-logo more-couriers">
-                                        <i class="fas fa-ellipsis-h"></i>
+                                        <div class="w-12 h-12 mx-auto mb-2 bg-gray-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-ellipsis-h text-gray-500"></i>
+                                        </div>
                                         <span>Lainnya</span>
                                     </div>
                                 </div>
                                 
-                                <!-- More Couriers Dropdown -->
-                                <div class="more-couriers-dropdown hidden">
-                                    <div class="courier-logo" data-courier="wahana" data-color="#0F4B8F">
-                                        <img src="assets/couriers/wahana.png" alt="Wahana" onerror="this.src='https://via.placeholder.com/40x40?text=Wahana'">
-                                        <span>Wahana</span>
-                                    </div>
-                                    <div class="courier-logo" data-courier="lex" data-color="#0F146D">
-                                        <img src="assets/couriers/lazada.jpg" alt="Lazada Express" onerror="this.src='https://via.placeholder.com/40x40?text=Lazada'">
-                                        <span>Lazada</span>
-                                    </div>
-                                    <div class="courier-logo" data-courier="ninja" data-color="#FF0000">
-                                        <img src="assets/couriers/ninja.png" alt="Ninja" onerror="this.src='https://via.placeholder.com/40x40?text=Ninja'">
-                                        <span>Ninja</span>
-                                    </div>
-                                    <div class="courier-logo" data-courier="first" data-color="#0033A0">
-                                        <img src="assets/couriers/first.jpg" alt="First Logistics" onerror="this.src='https://via.placeholder.com/40x40?text=First'">
-                                        <span>First</span>
-                                    </div>
-                                </div>
-                            </div>
+   <!-- More Couriers Dropdown -->
+        
+<div class="more-couriers-dropdown hidden mt-4 p-4 bg-white border border-gray-200 rounded-xl shadow-lg">
+  <div class="grid grid-cols-2 gap-4">
+    <div class="courier-logo" data-courier="wahana" data-color="#0F4B8F">
+      <div class="w-12 h-12 mx-auto mb-2 bg-white-100 rounded-full flex items-center justify-center">
+        <img src="/images/wahana-express-logo-png_seeklogo-382857.png" alt="Wahana" class="w-8 h-8 object-contain">
+      </div>
+      <span class="block text-center">Wahana</span>
+    </div>
+    <div class="courier-logo" data-courier="lex" data-color="#0F146D">
+      <div class="w-12 h-12 mx-auto mb-2 bg-white-100 rounded-full flex items-center justify-center">
+        <img src="/images/lazada-logo-png_seeklogo-504219.png" alt="Lazada Express" class="w-8 h-8 object-contain">
+      </div>
+      <span class="block text-center">Lazada</span>
+    </div>
+    <div class="courier-logo" data-courier="ninja" data-color="#FF0000">
+      <div class="w-12 h-12 mx-auto mb-2 bg-white-100 rounded-full flex items-center justify-center">
+        <img src="/images/ninja-xpress-logo-png_seeklogo-339937.png" alt="Ninja" class="w-8 h-8 object-contain">
+      </div>
+      <span class="block text-center">Ninja</span>
+    </div>
+    <div class="courier-logo" data-courier="first" data-color="#0033A0">
+      <div class="w-12 h-12 mx-auto mb-2 bg-white-100 rounded-full flex items-center justify-center">
+        <img src="/images/first.png" alt="First Logistics" class="w-8 h-8 object-contain">
+      </div>
+      <span class="block text-center">First</span>
+    </div>
+  </div>
+</div>
+
+
                             
-     <!-- Tracking Number Input -->
-    <div class="relative">
-      <label for="tracking-number" class="block text-gray-700 mb-2 font-medium text-lg">Nomor Resi</label>
+                            <!-- Tracking Number Input -->
+                            <div class="relative">
+                                <label for="tracking-number" class="block text-gray-700 mb-2 font-medium mt-10 text-lg">Nomor Resi</label>
                                 <div class="relative">
-                                    <input type="text" id="tracking-number" placeholder="Masukkan nomor resi Anda" class="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all text-base">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-barcode text-gray-400"></i>
+                                    </div>
+                                    <input type="text" id="tracking-number" placeholder="Masukkan nomor resi Anda" class="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all text-base">
                                     
-    <button type="button" id="example-button" class="absolute right-4 top-3 text-sm text-secondary hover:text-purple-800 font-medium">
+                                   
+             <button type="button" id="example-button" class="absolute right-4 top-3 text-sm text-indigo-600 hover:text-indigo-800 font-medium">
                                         
                                     </button>
                                 </div>
                                 <div id="validation-message" class="mt-2 text-sm hidden"></div>
+                                
                             </div>
                             
                             <!-- Submit Button -->
-                            <button type="submit" id="track-button" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 rounded-lg font-medium hover:opacity-90 transition-all transform hover:scale-[1.02] flex justify-center items-center text-lg">
+                            <button type="submit" id="track-button" class="w-full bg-gradient-to-r from-indigo-600 mt-5  to-purple-600 text-white py-3 rounded-lg font-medium hover:shadow-lg hover:shadow-indigo-200 transition-all transform hover:scale-[1.02] flex justify-center items-center text-lg">
                                 <i class="fas fa-search mr-2"></i> Lacak Paket
                             </button>
                         </form>
@@ -254,9 +431,14 @@
                     <div id="loading-animation" class="hidden">
                         <div class="flex flex-col items-center justify-center py-8 md:py-12">
                             <div class="relative">
-                                <div class="w-16 h-1 bg-gray-200 rounded-full mb-4"></div>
+                                <div class="w-64 h-2 bg-gray-200 rounded-full mb-4">
+                                    <div class="loading-bar h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" style="width: 0%"></div>
+                                </div>
                                 <div class="truck-loading-animation">
-                                    <i class="fas fa-truck text-secondary text-3xl md:text-4xl"></i>
+                                    <div class="relative">
+                                        <i class="fas fa-truck text-indigo-600 text-3xl md:text-4xl"></i>
+                                        <div class="absolute -top-1 -right-1 w-3 h-3 bg-pink-500 rounded-full animate-pulse"></div>
+                                    </div>
                                 </div>
                             </div>
                             <p class="mt-4 md:mt-6 text-gray-600 animate-pulse text-sm md:text-base">Mencari paket Anda...</p>
@@ -271,13 +453,360 @@
             </div>
         </section>
 
+        <!-- Ekspedisi Section -->
+        <section id="ekspedisi" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-8 md:mb-12">
+                    <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm font-medium mb-4">
+                        Ekspedisi Partner
+                    </span>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-800">Ekspedisi yang Didukung</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
+                        Kami mendukung pelacakan dari berbagai ekspedisi terpercaya di Indonesia untuk memudahkan Anda melacak paket dari mana saja.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+                    <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                            <img src="/images/jne-logo.png" alt="JNE" class="w-10 h-10 object-contain">
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-1">JNE</h3>
+                        <p class="text-gray-500 text-sm text-center">Jalur Nugraha Ekakurir</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mb-4">
+                            <img src="/images/j&t-logo.png" alt="J&T" class="w-10 h-10 object-contain">
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-1">J&T Express</h3>
+                        <p class="text-gray-500 text-sm text-center">J&T Express Indonesia</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
+                            <img src="/images/spx-logo.png" alt="Shopee Express" class="w-10 h-10 object-contain">
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-1">Shopee Express</h3>
+                        <p class="text-gray-500 text-sm text-center">Shopee Xpress</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                            <img src="/images/sicepat-logo.png" alt="SiCepat" class="w-10 h-10 object-contain">
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-1">SiCepat</h3>
+                        <p class="text-gray-500 text-sm text-center">Si Cepat Ekspres</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <img src="/images/anteraja-logo.png" alt="AnterAja" class="w-10 h-10 object-contain">
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-1">AnterAja</h3>
+                        <p class="text-gray-500 text-sm text-center">Anter Aja</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <img src="/images/wahana-express-logo-png_seeklogo-382857.png" alt="Wahana" class="w-10 h-10 object-contain">
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-1">Wahana</h3>
+                        <p class="text-gray-500 text-sm text-center">Wahana Prestasi Logistik</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <img src="/images/lazada-logo-png_seeklogo-504219.png" alt="Lazada Express" class="w-10 h-10 object-contain">
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-1">Lazada Express</h3>
+                        <p class="text-gray-500 text-sm text-center">LEX</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                            <img src="/images/ninja-xpress-logo-png_seeklogo-339937.png" alt="Ninja" class="w-10 h-10 object-contain">
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-1">Ninja Express</h3>
+                        <p class="text-gray-500 text-sm text-center">Ninja Xpress</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
+                            <img src="/images/first.png" alt="First Logistics" class="w-10 h-10 object-contain">
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-1">First Logistics</h3>
+                        <p class="text-gray-500 text-sm text-center">First Logistics</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-plus text-indigo-500 text-xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-1">Dan Lainnya</h3>
+                        <p class="text-gray-500 text-sm text-center">Ekspedisi lainnya</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-12 md:py-16 bg-gradient-to-b from-indigo-50 to-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-8 md:mb-12">
+                    <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm font-medium mb-4">
+                        Fitur Unggulan
+                    </span>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-800">Kenapa Menggunakan CekResi.idn?</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
+                        Platform kami menawarkan berbagai fitur yang memudahkan Anda melacak dan memantau pengiriman paket.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-5px]">
+                        <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-search text-indigo-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Pelacakan Multi-Ekspedisi</h3>
+                        <p class="text-gray-600">Lacak paket dari berbagai ekspedisi dalam satu platform tanpa perlu berpindah aplikasi.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-5px]">
+                        <div class="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-bell text-pink-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Notifikasi Real-time</h3>
+                        <p class="text-gray-600">Dapatkan notifikasi real-time tentang perubahan status pengiriman paket Anda.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-5px]">
+                        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-history text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Riwayat Pelacakan</h3>
+                        <p class="text-gray-600">Simpan dan akses riwayat pelacakan paket Anda dengan mudah kapan saja.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-5px]">
+                        <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-map-marker-alt text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Visualisasi Rute</h3>
+                        <p class="text-gray-600">Lihat visualisasi rute pengiriman paket Anda dari lokasi asal hingga tujuan.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-5px]">
+                        <div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-clock text-yellow-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Estimasi Waktu</h3>
+                        <p class="text-gray-600">Dapatkan estimasi waktu pengiriman yang akurat untuk perencanaan yang lebih baik.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-5px]">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Keamanan Data</h3>
+                        <p class="text-gray-600">Data pelacakan Anda aman dan terlindungi dengan sistem keamanan terbaik.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-8 md:mb-12">
+                    <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm font-medium mb-4">
+                        Bantuan
+                    </span>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-800">Pertanyaan yang Sering Diajukan</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
+                        Temukan jawaban untuk pertanyaan umum tentang pelacakan paket dan penggunaan platform kami.
+                    </p>
+                </div>
+                
+                <div class="max-w-3xl mx-auto">
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                            <button class="accordion-header w-full px-6 py-4 text-left font-medium text-gray-800 flex justify-between items-center hover:bg-indigo-50 transition-colors duration-300">
+                                <span>Bagaimana cara melacak paket saya?</span>
+                                <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content px-6 py-0 max-h-0 overflow-hidden transition-all duration-300">
+                                <div class="py-4 text-gray-600">
+                                    <p>Untuk melacak paket Anda, cukup pilih ekspedisi yang digunakan, masukkan nomor resi Anda pada kolom yang tersedia, dan klik tombol "Lacak Paket". Sistem kami akan menampilkan informasi terkini tentang status pengiriman paket Anda.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                            <button class="accordion-header w-full px-6 py-4 text-left font-medium text-gray-800 flex justify-between items-center hover:bg-indigo-50 transition-colors duration-300">
+                                <span>Ekspedisi apa saja yang didukung?</span>
+                                <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content px-6 py-0 max-h-0 overflow-hidden transition-all duration-300">
+                                <div class="py-4 text-gray-600">
+                                    <p>Kami mendukung berbagai ekspedisi populer di Indonesia, termasuk JNE, J&T Express, SiCepat, AnterAja, Shopee Express, Wahana, Lazada Express, Ninja Express, dan First Logistics. Kami terus menambahkan dukungan untuk ekspedisi lainnya.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                            <button class="accordion-header w-full px-6 py-4 text-left font-medium text-gray-800 flex justify-between items-center hover:bg-indigo-50 transition-colors duration-300">
+                                <span>Apakah layanan ini gratis?</span>
+                                <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content px-6 py-0 max-h-0 overflow-hidden transition-all duration-300">
+                                <div class="py-4 text-gray-600">
+                                    <p>Ya, layanan pelacakan paket kami sepenuhnya gratis untuk digunakan. Anda dapat melacak paket dari berbagai ekspedisi tanpa biaya tambahan.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                            <button class="accordion-header w-full px-6 py-4 text-left font-medium text-gray-800 flex justify-between items-center hover:bg-indigo-50 transition-colors duration-300">
+                                <span>Mengapa nomor resi saya tidak ditemukan?</span>
+                                <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content px-6 py-0 max-h-0 overflow-hidden transition-all duration-300">
+                                <div class="py-4 text-gray-600">
+                                    <p>Ada beberapa alasan mengapa nomor resi Anda mungkin tidak ditemukan:</p>
+                                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                                        <li>Nomor resi belum diaktifkan oleh pihak ekspedisi (biasanya membutuhkan waktu 1-24 jam setelah paket dikirim)</li>
+                                        <li>Nomor resi yang dimasukkan salah atau tidak valid</li>
+                                        <li>Ekspedisi yang dipilih tidak sesuai dengan nomor resi</li>
+                                        <li>Terjadi gangguan pada sistem ekspedisi atau API</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                            <button class="accordion-header w-full px-6 py-4 text-left font-medium text-gray-800 flex justify-between items-center hover:bg-indigo-50 transition-colors duration-300">
+                                <span>Apakah informasi pelacakan selalu akurat?</span>
+                                <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content px-6 py-0 max-h-0 overflow-hidden transition-all duration-300">
+                                <div class="py-4 text-gray-600">
+                                    <p>Kami mengambil data langsung dari sistem ekspedisi melalui API resmi, sehingga informasi yang ditampilkan sama dengan yang tersedia di situs resmi ekspedisi. Namun, terkadang ada penundaan pembaruan status dari pihak ekspedisi yang dapat memengaruhi akurasi informasi real-time.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-12 md:py-16 bg-gradient-to-b from-indigo-50 to-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-8 md:mb-12">
+                    <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm font-medium mb-4">
+                        Hubungi Kami
+                    </span>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-800">Butuh Bantuan?</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
+                        Jika Anda memiliki pertanyaan atau masalah, jangan ragu untuk menghubungi tim dukungan kami.
+                    </p>
+                </div>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-6 md:p-8 bg-gradient-to-br from-indigo-600 to-purple-600 text-white">
+                                <h3 class="text-xl font-bold mb-4">Informasi Kontak</h3>
+                                <p class="mb-6">Kami siap membantu Anda dengan pertanyaan atau masalah yang Anda miliki.</p>
+                                
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                            <i class="fas fa-envelope text-white"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-indigo-100">Email</p>
+                                            <p class="font-medium">alienrektz@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                            <i class="fas fa-phone-alt text-white"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-indigo-100">Telepon</p>
+                                            <p class="font-medium">+62 852 9961 3785</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                            <i class="fas fa-map-marker-alt text-white"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-indigo-100">Alamat</p>
+                                            <p class="font-medium">Jl. Pelita Belaka, Kabupaten Gowa, Indonesia</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-8">
+                                    <h4 class="text-lg font-medium mb-3">Ikuti Kami</h4>
+                                    <div class="flex space-x-3">
+                                        <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-colors" aria-label="Facebook">
+                                            <i class="fab fa-facebook-f text-white"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-colors" aria-label="Twitter">
+                                            <i class="fab fa-twitter text-white"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-colors" aria-label="Instagram">
+                                            <i class="fab fa-instagram text-white"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-colors" aria-label="LinkedIn">
+                                            <i class="fab fa-linkedin-in text-white"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="p-6 md:p-8">
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">Kirim Pesan</h3>
+                                <form id="contact-form" class="space-y-4">
+                                    <div>
+                                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+                                        <input type="text" id="name" placeholder="Masukkan nama lengkap" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all">
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                        <input type="email" id="email" placeholder="Masukkan alamat email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all">
+                                    </div>
+                                    
+                                    <div>
+                                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
+                                        <textarea id="message" rows="4" placeholder="Tulis pesan Anda di sini" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"></textarea>
+                                    </div>
+                                    
+                                    <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-2 rounded-lg font-medium hover:shadow-lg hover:shadow-indigo-200 transition-all">
+                                        <i class="fas fa-paper-plane mr-2"></i> Kirim Pesan
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Detail Modal -->
         <div id="detail-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
             <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate__animated animate__fadeIn">
                 <div class="p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-xl font-bold text-gray-800">Detail Pengiriman <span id="modal-courier-name"></span></h3>
-                        <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                        <button id="close-modal" class="text-gray-500 hover:text-gray-700 transition-colors" aria-label="Tutup">
                             <i class="fas fa-times text-xl"></i>
                         </button>
                     </div>
@@ -295,51 +824,95 @@
         </div>
 
         <!-- Back to Top Button -->
-        <button id="back-to-top" class="fixed bottom-4 right-4 bg-secondary text-black w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform scale-0 transition-transform z-30">
+        <button id="back-to-top" class="fixed bottom-4 right-4 bg-indigo-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform scale-0 transition-transform z-30 hover:bg-indigo-700" aria-label="Kembali ke atas">
             <i class="fas fa-arrow-up"></i>
         </button>
     </main>
 
     <!-- Footer -->
- <footer class="bg-gradient-to-r from-primary to-secondary text-white py-8 px-6 mt-20">
+    <footer class="bg-gradient-to-r from-indigo-800 to-purple-800 text-white py-8 px-6 mt-20">
         <div class="container mx-auto">
-<div class="flex flex-col md:flex-row justify-between items-center">
-  <div class="mb-6 md:mb-0">
-    <a href="#" class="flex items-center space-x-2 no-underline"> 
-    
-    <div class="relative">
-        <i class="fas fa-truck text-xl text-white"></i>
-        <div class="absolute -top-1 -right-1 h-3 w-3 bg-pink-500 rounded-full animate-pulse"></div>
-      </div>
-      <h2 class="text-xl font-bold text-white font-poppins">
-        CekResi<span class="text-pink-500">.idn</span>
-      </h2>
-    </a>
-    <p class="text-blue-100 text-sm">Lacak paket Anda dari berbagai ekspedisi dengan mudah</p>
-  </div>
-  <div class="flex space-x-4">
-    <a href="#" class="text-white hover:text-pink-300 transition-colors duration-300">
-      <i class="fab fa-instagram text-xl"></i>
-    </a>
-    <a href="#" class="text-white hover:text-pink-300 transition-colors duration-300">
-      <i class="fab fa-twitter text-xl"></i>
-    </a>
-    <a href="#" class="text-white hover:text-pink-300 transition-colors duration-300">
-      <i class="fab fa-facebook text-xl"></i>
-    </a>
-  </div>
-</div>
-            <div class="mt-8 pt-6 border-t border-blue-400 text-center text-blue-100 text-sm">
-                &copy; <span id="current-year"></span> CekResi.idn. @ Muh Amin Arsyad.
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="flex items-center space-x-2 no-underline group"> 
+                        <div class="relative transition-transform duration-300 group-hover:scale-110">
+                            <i class="fas fa-truck text-xl text-white"></i>
+                            <div class="absolute -top-1 -right-1 h-3 w-3 bg-pink-500 rounded-full animate-pulse"></div>
+                        </div>
+                        <h2 class="text-xl font-bold text-white font-poppins">
+                            CekResi<span class="text-pink-400">.idn</span>
+                        </h2>
+                    </a>
+                    <p class="text-indigo-200 text-sm mt-2">Lacak paket Anda dari berbagai ekspedisi dengan mudah</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-pink-300 transition-colors duration-300" aria-label="Instagram">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-pink-300 transition-colors duration-300" aria-label="Twitter">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-pink-300 transition-colors duration-300" aria-label="Facebook">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-indigo-700 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 footer-grid">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Tentang Kami</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Tentang CekResi.idn</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Karir</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Mitra Kami</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Layanan</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Lacak Paket</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Cek Tarif</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Cek Lokasi Drop Point</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">API Pelacakan</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Bantuan</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Pusat Bantuan</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Hubungi Kami</a></li>
+                        <li><a href="#" class="text-indigo-200 hover:text-white transition-colors">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Unduh Aplikasi</h4>
+                    <p class="text-indigo-200 mb-4">Dapatkan aplikasi CekResi.idn di smartphone Anda untuk pelacakan yang lebih mudah.</p>
+                    <div class="flex space-x-2">
+                        <a href="#" class="bg-white text-indigo-800 px-4 py-2 rounded-lg flex items-center hover:bg-indigo-100 transition-colors">
+                            <i class="fab fa-google-play mr-2"></i>
+                            <span>Google Play</span>
+                        </a>
+                        <a href="#" class="bg-white text-indigo-800 px-4 py-2 rounded-lg flex items-center hover:bg-indigo-100 transition-colors">
+                            <i class="fab fa-apple mr-2"></i>
+                            <span>App Store</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-indigo-700 text-center text-indigo-200 text-sm">
+                &copy; <span id="current-year"></span> CekResi.idn. @ Muh Amin Arsyad. All rights reserved.
                 <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
     <!-- Custom JS -->
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
